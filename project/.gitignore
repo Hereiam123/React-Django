@@ -7,3 +7,5 @@ htmlcov
 
 .env
 db.sqlite3
+
+leads/fixtures
