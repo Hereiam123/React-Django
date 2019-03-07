@@ -12,3 +12,5 @@ db.sqlite3
 leads/fixtures
 
 .vscode
+
+project/frontend/cypress
