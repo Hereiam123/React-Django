@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Cookie from "js-cookie";
 class Form extends Component {
   static propTypes = {
     endpoint: PropTypes.string.isRequired
@@ -9,6 +10,7 @@ class Form extends Component {
     email: "",
     message: ""
   };
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -19,7 +21,10 @@ class Form extends Component {
     const conf = {
       method: "post",
       body: JSON.stringify(lead),
-      headers: new Headers({ "Content-Type": "application/json" })
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookie.get("csrftoken")
+      })
     };
     fetch(this.props.endpoint, conf).then(response => console.log(response));
   };
