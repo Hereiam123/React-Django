@@ -14,3 +14,4 @@ leads/fixtures
 .vscode
 
 project/frontend/cypress
+project/frontend/cypress.json
